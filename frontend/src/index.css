@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215 20% 27.8%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98.0%;
+
+    --secondary: 217 91% 85%;
+    --secondary-foreground: 222 47% 82%;
+
+    --accent: 217 91% 85%;
+    --accent-foreground: 222 47% 82%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 92%;
+    --input: 214 32% 92%;
+    --ring: 215 20% 27.8%;
+  }
+}
+
+@layer utilities {
+  .shadcn {
+    @apply h-4 w-4 rounded-sm border bg-card px-2 py-1 text-card-foreground;
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__plugin_context-mode_context-mode__ctx_search",
+      "Bash(python -m venv venv)",
+      "Bash(venv/Scripts/pip install *)",
+      "Bash(npm create *)",
+      "Bash(npm install *)",
+      "Bash(npx tailwindcss *)",
+      "mcp__plugin_context-mode_context-mode__ctx_batch_execute",
+      "Bash(npm list *)",
+      "Bash(npx shadcn@latest *)"
+    ]
+  }
+}
