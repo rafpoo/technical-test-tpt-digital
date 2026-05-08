@@ -95,7 +95,7 @@ pip install -r requirements.txt
 Buat file `backend/.env`:
 
 ```env
-MONGODB_URI=mongodb://localhost:27017/product_management
+MONGODB_URI=mongodb-uri
 JWT_SECRET_KEY=change-this-secret
 ADMIN_USERNAME=admin
 ADMIN_PASSWORD=admin123
