@@ -23,31 +23,26 @@ Aplikasi fullstack sederhana untuk mengelola produk toko online kecil. Project i
 
 ## Screenshot Aplikasi
 
-Tambahkan screenshot aplikasi di bagian ini. Contoh struktur folder yang bisa dipakai:
-
-```txt
-docs/screenshots/
-  login.png
-  dashboard.png
-  products.png
-  categories.png
-```
-
 ### Login
 
 ![Login](docs/screenshots/login.png)
 
 ### Dashboard
 
-![Dashboard](docs/screenshots/dashboard.png)
+<img width="1912" height="1003" alt="image" src="https://github.com/user-attachments/assets/327f0c40-43b5-4f49-9634-6b50a501275e" />
 
 ### Products
 
-![Products](docs/screenshots/products.png)
+<img width="1893" height="1022" alt="image" src="https://github.com/user-attachments/assets/6ddb683c-41ae-47a6-a6ae-f34bb0a3663a" />
+<br />
+<img width="1905" height="1023" alt="image" src="https://github.com/user-attachments/assets/d3c9d47e-4f27-4a6e-931f-8f3a005a09ff" />
+
 
 ### Categories
 
-![Categories](docs/screenshots/categories.png)
+<img width="1904" height="1030" alt="image" src="https://github.com/user-attachments/assets/470ee41e-d44e-44ca-b789-b0b4f167fb58" />
+<br />
+<img width="1904" height="1018" alt="image" src="https://github.com/user-attachments/assets/1927818e-7fd2-42c8-9451-ac521472b832" />
 
 ## Struktur Project
 
@@ -74,7 +69,6 @@ Pastikan sudah terinstall:
 
 - Python 3.11 atau versi kompatibel
 - Node.js dan npm
-- MongoDB lokal atau akun MongoDB Atlas
 - Git
 
 ## Setup Backend
@@ -153,12 +147,6 @@ Jalankan frontend:
 npm run dev
 ```
 
-Build frontend:
-
-```bash
-npm run build
-```
-
 ## Login Default
 
 Backend akan membuat user admin saat startup berdasarkan environment variable berikut:
@@ -168,7 +156,7 @@ ADMIN_USERNAME
 ADMIN_PASSWORD
 ```
 
-Gunakan nilai tersebut untuk login di halaman frontend.
+Gunakan value tersebut untuk login di halaman frontend.
 
 ## API Documentation
 
@@ -279,47 +267,9 @@ Contoh start command backend untuk Render atau Railway:
 uvicorn main:app --host 0.0.0.0 --port $PORT
 ```
 
-Environment variable backend yang perlu diset di hosting:
-
-```env
-MONGODB_URI=...
-JWT_SECRET_KEY=...
-ADMIN_USERNAME=...
-ADMIN_PASSWORD=...
-```
-
 Environment variable frontend:
 
 ```env
 VITE_API_URL=https://your-backend-url
 ```
 
-Jika deploy frontend di Vercel atau Render Static Site:
-
-```txt
-Root directory: frontend
-Build command: npm run build
-Output directory: dist
-```
-
-Jika deploy backend di Render atau Railway:
-
-```txt
-Root directory: backend
-Build command: pip install -r requirements.txt
-Start command: uvicorn main:app --host 0.0.0.0 --port $PORT
-```
-
-## Catatan Requirement / Tradeoff
-
-- PDF task mencantumkan field produk `stock`, `category`, `isActive`, `createdAt`, dan `updatedAt`.
-- Implementasi ini memakai naming backend: `stock_quantity`, `category_id`, `created_at`, dan `updated_at`.
-- Status aktif/nonaktif produk (`isActive`) belum diimplementasikan.
-- Endpoint produk menggunakan prefix `/api`, contoh `/api/products`, bukan langsung `/products`.
-- Project memakai MongoDB, bukan in-memory storage.
-
-## Catatan Keamanan
-
-- Jangan commit file `.env` yang berisi credential asli.
-- Jika credential pernah dibagikan, sebaiknya segera rotate password dan secret.
-- Untuk production, batasi CORS hanya ke domain frontend yang dipakai.
