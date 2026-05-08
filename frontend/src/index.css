@@ -27,9 +27,3 @@
     --ring: 215 20% 27.8%;
   }
 }
-
-@layer utilities {
-  .shadcn {
-    @apply h-4 w-4 rounded-sm border bg-card px-2 py-1 text-card-foreground;
-  }
-}

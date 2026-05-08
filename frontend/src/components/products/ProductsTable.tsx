@@ -1,5 +1,4 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { Link } from 'react-router-dom';
 import api from '../../lib/api';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
@@ -47,7 +46,7 @@ export default function ProductsTable() {
             <option key={cat.id} value={cat.id}>{cat.name}</option>
           ))}
         </select>
-        <Button onClick={() => { setEditingProduct(null); setModalOpen(true); }>Add Product</Button>
+        <Button onClick={() => { setEditingProduct(null); setModalOpen(true); }}>Add Product</Button>
       </div>
       <table className="w-full border">
         <thead>
@@ -69,7 +68,7 @@ export default function ProductsTable() {
               <td>{categories?.find((c: any) => c.id === product.category_id)?.name || 'Unknown'}</td>
               <td className={product.stock_quantity < 10 ? 'text-red-600 font-bold' : ''}>{product.stock_quantity}</td>
               <td>
-                <Button variant="outline" size="sm" onClick={() => { setEditingProduct(product); setModalOpen(true); }>Edit</Button>
+                <Button variant="outline" size="sm" onClick={() => { setEditingProduct(product); setModalOpen(true); }}>Edit</Button>
                 <Button variant="destructive" size="sm" onClick={() => deleteMutation.mutate(product.id)}>Delete</Button>
               </td>
             </tr>

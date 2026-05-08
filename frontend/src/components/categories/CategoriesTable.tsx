@@ -31,7 +31,7 @@ export default function CategoriesTable() {
   return (
     <div>
       <div className="flex justify-end mb-4">
-        <Button onClick={() => { setEditingCategory(null); setModalOpen(true); }>Add Category</Button>
+        <Button onClick={() => { setEditingCategory(null); setModalOpen(true); }}>Add Category</Button>
       </div>
       <table className="w-full border">
         <thead>

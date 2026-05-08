@@ -14,7 +14,7 @@ export default function LowStockTable() {
 
   return (
     <div className="bg-white rounded shadow p-4">
-      <h3 className="mb-4">Low Stock Products (Stock < 10)</h3>
+      <h3 className="mb-4">Low Stock Products (Stock &lt; 10)</h3>
       <table className="w-full">
         <thead>
           <tr>
