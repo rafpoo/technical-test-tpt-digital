@@ -7,10 +7,6 @@ from auth.dependencies import get_current_user_id
 router = APIRouter(prefix="/api/products", tags=["products"])
 product_service = ProductService()
 
-@router.on_event("startup")
-async def startup_event():
-    await product_service.initialize()
-
 @router.get("", response_model=List[ProductResponse])
 async def get_products(
     category_id: Optional[str] = Query(None, description="Filter by category ID"),

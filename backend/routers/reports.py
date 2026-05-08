@@ -6,10 +6,6 @@ from auth.dependencies import get_current_user_id
 router = APIRouter(prefix="/api/reports", tags=["reports"])
 report_service = ReportService()
 
-@router.on_event("startup")
-async def startup_event():
-    await report_service.initialize()
-
 @router.get("/products")
 async def export_products_csv(user_id: str = Depends(get_current_user_id)):
     try:

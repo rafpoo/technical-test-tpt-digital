@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field, validator
+from pydantic import BaseModel, Field, field_validator, ConfigDict
 from typing import Optional
 from datetime import datetime
 import uuid
@@ -10,7 +10,7 @@ class ProductBase(BaseModel):
     category_id: str = Field(..., min_length=1)
     stock_quantity: int = Field(..., ge=0)
 
-    @validator('category_id')
+    @field_validator('category_id')
     def validate_category_id(cls, v):
         try:
             uuid.UUID(v)
@@ -28,7 +28,7 @@ class ProductUpdate(BaseModel):
     category_id: Optional[str] = Field(None, min_length=1)
     stock_quantity: Optional[int] = Field(None, ge=0)
 
-    @validator('category_id')
+    @field_validator('category_id')
     def validate_category_id(cls, v):
         if v is not None:
             try:
@@ -43,5 +43,4 @@ class ProductResponse(ProductBase):
     created_at: datetime = Field(default_factory=datetime.utcnow)
     updated_at: datetime = Field(default_factory=datetime.utcnow)
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
