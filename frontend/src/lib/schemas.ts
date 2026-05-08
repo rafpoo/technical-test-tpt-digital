@@ -16,6 +16,7 @@ export const productSchema = z.object({
   price: z.number().positive('Price must be greater than zero'),
   category_id: z.string().uuid('Select a valid category'),
   stock_quantity: z.number().int().min(0, 'Stock cannot be negative'),
+  is_active: z.boolean().default(true),
 })
 
 export type LoginInput = z.infer<typeof loginSchema>
@@ -32,6 +33,7 @@ export type Product = ProductInput & {
   id: string
   created_at?: string
   updated_at?: string
+  is_active?: boolean
 }
 
 export type DashboardStats = {

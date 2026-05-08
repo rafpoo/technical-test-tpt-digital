@@ -23,8 +23,9 @@ export default function ProductFormModal({ product, categories, onClose }: Props
           price: product.price,
           category_id: product.category_id,
           stock_quantity: product.stock_quantity,
+          is_active: product.is_active ?? true,
         }
-      : { name: '', description: '', price: 0, category_id: '', stock_quantity: 0 }
+      : { name: '', description: '', price: 0, category_id: '', stock_quantity: 0, is_active: true }
   );
   const [errors, setErrors] = useState<Partial<Record<keyof ProductInput, string>>>({});
 
@@ -153,6 +154,15 @@ export default function ProductFormModal({ product, categories, onClose }: Props
               ))}
             </select>
             {errors.category_id ? <p className="text-sm text-red-600">{errors.category_id}</p> : null}
+          </label>
+          <label className="flex items-center gap-2">
+            <input
+              type="checkbox"
+              checked={form.is_active ?? true}
+              onChange={(e) => setForm({ ...form, is_active: e.target.checked })}
+              className="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
+            />
+            <span className="text-sm font-medium text-slate-700">Active</span>
           </label>
           <div className="flex justify-end gap-2 border-t border-slate-100 pt-4">
             <Button type="button" variant="outline" onClick={onClose}>Cancel</Button>

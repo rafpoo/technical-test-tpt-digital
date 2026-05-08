@@ -24,7 +24,8 @@
       "Bash(timeout 5 venv/Scripts/uvicorn main:app --host 0.0.0.0 --port 8000)",
       "Bash(netstat -ano)",
       "Bash(findstr :8000)",
-      "Bash(venv/Scripts/uvicorn main:app --host 0.0.0.0 --port 8000)"
+      "Bash(venv/Scripts/uvicorn main:app --host 0.0.0.0 --port 8000)",
+      "Bash(venv\\\\Scripts\\\\pytest tests/test_products.py -v)"
     ]
   }
 }

@@ -115,6 +115,7 @@ export default function ProductsTable() {
               <th className="px-5 py-3 font-semibold">Description</th>
               <th className="px-5 py-3 font-semibold">Price</th>
               <th className="px-5 py-3 font-semibold">Category</th>
+              <th className="px-5 py-3 font-semibold">Status</th>
               <th className="px-5 py-3 text-right font-semibold">Stock</th>
               <th className="px-5 py-3 text-right font-semibold">Actions</th>
             </tr>
@@ -158,6 +159,13 @@ export default function ProductsTable() {
                 <td className="px-5 py-4 text-slate-700">{currency.format(product.price)}</td>
                 <td className="px-5 py-4 text-slate-700">
                   {categories?.find((category) => category.id === product.category_id)?.name || 'Unknown'}
+                </td>
+                <td className="px-5 py-4">
+                  {product.is_active ?? true ? (
+                    <span className="inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700">Active</span>
+                  ) : (
+                    <span className="inline-flex items-center rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-600">Inactive</span>
+                  )}
                 </td>
                 <td className="px-5 py-4 text-right">
                   <span className={product.stock_quantity < 10 ? 'rounded-full bg-rose-50 px-2.5 py-1 font-semibold text-rose-700' : 'font-medium text-slate-700'}>

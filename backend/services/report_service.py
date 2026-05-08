@@ -19,11 +19,11 @@ class ReportService:
         categories = await self.category_repo.find_all()
         category_map = {cat["id"]: cat["name"] for cat in categories}
 
-        csv_lines = ["name,description,price,category,stock_quantity"]
+        csv_lines = ["name,description,price,category,stock_quantity,is_active"]
 
         for product in products:
             category_name = category_map.get(product["category_id"], "Unknown")
-            line = f'"{product["name"]}","{product.get("description", "")}",{product["price"]},"{category_name}",{product["stock_quantity"]}'
+            line = f'"{product["name"]}","{product.get("description", "")}",{product["price"]},"{category_name}",{product["stock_quantity"]},{str(product.get("is_active", True)).lower()}'
             csv_lines.append(line)
 
         return "\n".join(csv_lines)

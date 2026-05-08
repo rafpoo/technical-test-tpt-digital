@@ -9,6 +9,7 @@ class ProductBase(BaseModel):
     price: float = Field(..., gt=0)
     category_id: str = Field(..., min_length=1)
     stock_quantity: int = Field(..., ge=0)
+    is_active: bool = True
 
     @field_validator('category_id')
     def validate_category_id(cls, v):
@@ -27,6 +28,7 @@ class ProductUpdate(BaseModel):
     price: Optional[float] = Field(None, gt=0)
     category_id: Optional[str] = Field(None, min_length=1)
     stock_quantity: Optional[int] = Field(None, ge=0)
+    is_active: Optional[bool] = None
 
     @field_validator('category_id')
     def validate_category_id(cls, v):
