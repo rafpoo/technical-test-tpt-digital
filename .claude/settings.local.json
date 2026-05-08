@@ -9,7 +9,15 @@
       "Bash(npx tailwindcss *)",
       "mcp__plugin_context-mode_context-mode__ctx_batch_execute",
       "Bash(npm list *)",
-      "Bash(npx shadcn@latest *)"
+      "Bash(npx shadcn@latest *)",
+      "Read(//c/Users/Rafael Po/Kuliah/Project Mandiri/**)",
+      "Bash(mkdir -p routers models services database auth utils tests)",
+      "Bash(mkdir *)",
+      "Bash(backend/venv/Scripts/python *)",
+      "Bash(venv/Scripts/pytest -v)",
+      "Bash(venv/Scripts/pytest tests/test_reports.py -v)",
+      "Bash(venv/Scripts/pytest tests/test_dashboard.py -v)",
+      "Bash(venv/Scripts/pytest tests/test_dashboard.py::test_dashboard_with_low_stock -v -s)"
     ]
   }
 }
