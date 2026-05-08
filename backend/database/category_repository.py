@@ -17,8 +17,8 @@ class CategoryRepository:
 
     async def create(self, category_data: Dict[str, Any]) -> str:
         category_data["id"] = str(uuid.uuid4())
-        result = await self.collection.insert_one(category_data)
-        return str(result.inserted_id)
+        await self.collection.insert_one(category_data)
+        return category_data["id"]
 
     async def update(self, category_id: str, category_data: Dict[str, Any]) -> bool:
         result = await self.collection.update_one(

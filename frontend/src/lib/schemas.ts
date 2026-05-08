@@ -13,7 +13,7 @@ export const categorySchema = z.object({
 export const productSchema = z.object({
   name: z.string().min(1, 'Name is required'),
   description: z.string().optional().default(''),
-  price: z.number().min(0, 'Price cannot be negative'),
+  price: z.number().positive('Price must be greater than zero'),
   category_id: z.string().uuid('Select a valid category'),
   stock_quantity: z.number().int().min(0, 'Stock cannot be negative'),
 })

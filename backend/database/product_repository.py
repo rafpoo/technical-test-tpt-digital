@@ -17,8 +17,8 @@ class ProductRepository:
 
     async def create(self, product_data: Dict[str, Any]) -> str:
         product_data["id"] = str(uuid.uuid4())
-        result = await self.collection.insert_one(product_data)
-        return str(result.inserted_id)
+        await self.collection.insert_one(product_data)
+        return product_data["id"]
 
     async def update(self, product_id: str, product_data: Dict[str, Any]) -> bool:
         result = await self.collection.update_one(
