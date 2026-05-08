@@ -25,7 +25,7 @@ Aplikasi fullstack sederhana untuk mengelola produk toko online kecil. Project i
 
 ### Login
 
-![Login](docs/screenshots/login.png)
+<img width="1896" height="1022" alt="image" src="https://github.com/user-attachments/assets/dd701e48-93cf-4210-acfc-2ec00fcb1b57" />
 
 ### Dashboard
 
