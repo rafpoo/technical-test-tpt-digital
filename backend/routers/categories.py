@@ -7,10 +7,6 @@ from auth.dependencies import get_current_user_id
 router = APIRouter(prefix="/api/categories", tags=["categories"])
 category_service = CategoryService()
 
-@router.on_event("startup")
-async def startup_event():
-    await category_service.initialize()
-
 @router.get("", response_model=List[CategoryResponse])
 async def get_categories(user_id: str = Depends(get_current_user_id)):
     return await category_service.get_all_categories()

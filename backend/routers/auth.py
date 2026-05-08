@@ -8,10 +8,6 @@ security = HTTPBearer()
 
 auth_service = AuthService()
 
-@router.on_event("startup")
-async def startup_event():
-    await auth_service.initialize()
-
 @router.post("/login", response_model=LoginResponse)
 async def login(login_data: LoginRequest):
     try:
