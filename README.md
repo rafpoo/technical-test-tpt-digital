@@ -21,6 +21,34 @@ Aplikasi fullstack sederhana untuk mengelola produk toko online kecil. Project i
 - Loading state, error state, validasi form, dan konfirmasi hapus
 - Layout admin yang responsif
 
+## Screenshot Aplikasi
+
+Tambahkan screenshot aplikasi di bagian ini. Contoh struktur folder yang bisa dipakai:
+
+```txt
+docs/screenshots/
+  login.png
+  dashboard.png
+  products.png
+  categories.png
+```
+
+### Login
+
+![Login](docs/screenshots/login.png)
+
+### Dashboard
+
+![Dashboard](docs/screenshots/dashboard.png)
+
+### Products
+
+![Products](docs/screenshots/products.png)
+
+### Categories
+
+![Categories](docs/screenshots/categories.png)
+
 ## Struktur Project
 
 ```txt
