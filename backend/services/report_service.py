@@ -1,13 +1,13 @@
+from motor.motor_asyncio import AsyncIOMotorDatabase
 from database.product_repository import ProductRepository
 from database.category_repository import CategoryRepository
 from database.connection import get_database
-from typing import List
 
 class ReportService:
     def __init__(self):
-        self.db = None
-        self.product_repo = None
-        self.category_repo = None
+        self.db: AsyncIOMotorDatabase
+        self.product_repo: ProductRepository
+        self.category_repo: CategoryRepository
 
     async def initialize(self):
         self.db = await get_database()

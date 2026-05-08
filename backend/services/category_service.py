@@ -1,13 +1,14 @@
 from typing import List
 from datetime import datetime
+from motor.motor_asyncio import AsyncIOMotorDatabase
 from database.category_repository import CategoryRepository
 from database.connection import get_database
 from models.categories import CategoryCreate, CategoryUpdate, CategoryResponse
 
 class CategoryService:
     def __init__(self):
-        self.db = None
-        self.category_repo = None
+        self.db: AsyncIOMotorDatabase
+        self.category_repo: CategoryRepository
 
     async def initialize(self):
         self.db = await get_database()
@@ -51,6 +52,8 @@ class CategoryService:
         await self.category_repo.update(category_id, update_dict)
 
         updated_category = await self.category_repo.find_by_id(category_id)
+        if not updated_category:
+            raise ValueError("Category not found")
         return CategoryResponse(**updated_category)
 
     async def delete_category(self, category_id: str) -> bool:

@@ -1,5 +1,6 @@
 from typing import Optional
 from datetime import datetime
+from motor.motor_asyncio import AsyncIOMotorDatabase
 from database.user_repository import UserRepository
 from database.connection import get_database
 from auth.security import verify_password, get_password_hash, create_access_token
@@ -7,8 +8,8 @@ from models.auth import UserCreate, UserResponse, LoginResponse
 
 class AuthService:
     def __init__(self):
-        self.db = None
-        self.user_repo = None
+        self.db: AsyncIOMotorDatabase
+        self.user_repo: UserRepository
 
     async def initialize(self):
         self.db = await get_database()

@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
+from routers import auth, categories, products, dashboard, reports
+from database.connection import close_database
 
 load_dotenv()
 
@@ -14,6 +16,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.include_router(auth.router)
+app.include_router(categories.router)
+app.include_router(products.router)
+app.include_router(dashboard.router)
+app.include_router(reports.router)
+
 @app.get("/")
 async def root():
     return {"message": "Product Management API"}
@@ -21,3 +29,7 @@ async def root():
 @app.get("/health")
 async def health():
     return {"status": "healthy"}
+
+@app.on_event("shutdown")
+async def shutdown_event():
+    await close_database()

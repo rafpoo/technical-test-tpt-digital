@@ -1,5 +1,6 @@
 from typing import List, Optional
 from datetime import datetime
+from motor.motor_asyncio import AsyncIOMotorDatabase
 from database.product_repository import ProductRepository
 from database.category_repository import CategoryRepository
 from database.connection import get_database
@@ -7,9 +8,9 @@ from models.products import ProductCreate, ProductUpdate, ProductResponse
 
 class ProductService:
     def __init__(self):
-        self.db = None
-        self.product_repo = None
-        self.category_repo = None
+        self.db: AsyncIOMotorDatabase
+        self.product_repo: ProductRepository
+        self.category_repo: CategoryRepository
 
     async def initialize(self):
         self.db = await get_database()
@@ -54,6 +55,8 @@ class ProductService:
         await self.product_repo.update(product_id, update_dict)
 
         updated_product = await self.product_repo.find_by_id(product_id)
+        if not updated_product:
+            raise ValueError("Product not found")
         return ProductResponse(**updated_product)
 
     async def delete_product(self, product_id: str) -> bool:
